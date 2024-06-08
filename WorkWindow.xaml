@@ -1,0 +1,51 @@
+﻿<Window x:Class="Practical_work.WorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practical_work"
+        mc:Ignorable="d"
+        Title="{Binding ElementName=CurrentFrame, Path=Content.Title}"
+        Height="450" Width="800"
+        Style="{StaticResource Base_window}"
+        Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="{StaticResource Additional}" />
+        
+        <Image Source="/Resourses/school_logo.png"
+               Margin="10"
+               HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="0" Text="Great Britian"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Background="{StaticResource Additional}"
+                   FontSize="25" FontWeight="Bold" />
+
+        <Frame x:Name="CurrentFrame" Grid.Row="1"
+               BorderBrush="{StaticResource Akcent}"
+               NavigationUIVisibility="Hidden"
+               BorderThickness="1"
+               ContentRendered="CurrentFrame_ContentRendered" />
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+
+            <Button x:Name="EditGoodButton" Content="Товары"
+                    Click="EditGoodButton_Click" 
+                    Style="{StaticResource NavigationButton}"/>
+
+            <Button x:Name="GoBackButton" Content="Назад"
+                    Click="GoBackButton_Click"
+                    Style="{StaticResource NavigationButton}"/>
+
+        </StackPanel>
+
+        <Grid Grid.Row="2" Background="{StaticResource Additional}" />
+
+    </Grid>
+</Window>
